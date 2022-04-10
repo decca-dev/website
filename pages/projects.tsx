@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { NextPage, NextPageContext } from "next";
 import Layout from "../components/Layout";
 import ProjectCard from "../components/ProjectCard";
 import { ProjectInterface } from "../lib/types";
@@ -36,8 +36,12 @@ const Projects: NextPage<PageOptions> = ({ projects }) => {
   );
 };
 
-export const getStaticProps = async () => {
-  const res = await fetch(`${process.env.URL}/api/projects`, {
+export const getStaticProps = async (context: NextPageContext) => {
+  const protocol = context.req?.headers["x-forwarded-proto"] || "http";
+  const baseUrl = context.req
+    ? `${protocol}://${context.req.headers.host}`
+    : "";
+  const res = await fetch(`${baseUrl}/api/projects`, {
     headers: {
       Accept: "application/json, text/plain, */*",
       "User-Agent": "*",
