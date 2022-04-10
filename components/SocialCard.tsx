@@ -22,6 +22,7 @@ const SocialCard = ({ platform, name, href }: Social) => {
           width={70}
           height={70}
           className="py-3 ml-4"
+          alt="social"
         />
         <div className="ml-5">
           <h1 className="font-bold text-white text-lg">{name}</h1>

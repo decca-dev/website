@@ -40,7 +40,7 @@ const NavLink = ({ title, href, active }: NavLinkOptions) => {
           : "text-gray-400"
       }
     >
-      <Link href={href} children={title} />
+      <Link href={href}>{title}</Link>
     </h1>
   );
 };

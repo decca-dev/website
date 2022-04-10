@@ -16,6 +16,7 @@ const ActivityCard = ({ name, details }: Activity) => {
           width={70}
           height={70}
           className="py-3 ml-4"
+          alt="activity"
         />
         <div className="ml-5 font-semibold">
           <h1>{name}</h1>

@@ -22,6 +22,7 @@ const ContactCard = ({ platform, adress, href }: Contact) => {
           width={70}
           height={70}
           className="py-3 ml-4"
+          alt="contact"
         />
         <div className="ml-5">
           <h1 className="font-bold text-white text-lg">{platform}</h1>
