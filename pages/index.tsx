@@ -22,7 +22,7 @@ const Home: NextPage<Props> = ({ activities }) => {
       <div className="container">
         <div>
           <h1 className="font-bold text-5xl">
-            Hey, I'm <span className="h-text">decc00n</span>
+            Hey, I&apos;m <span className="h-text">decc00n</span>
           </h1>
           <h2 className="font-semibold mt-5 w-72 text-3xl">
             Full stack developer with weird projects and a student from

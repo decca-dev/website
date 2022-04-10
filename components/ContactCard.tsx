@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface Contact {
   platform: string;
   adress: string;
@@ -11,19 +13,20 @@ const ContactCard = ({ platform, adress, href }: Contact) => {
       onClick={() => (window.location.href = href)}
     >
       <div className="flex flex-row items-center">
-        <img
-          src={
-            platform === "Email"
-              ? "/assets/Email.svg"
-              : platform === "Discord"
-              ? "/assets/Discord.svg"
-              : ""
-          }
-          width={70}
-          height={70}
-          className="py-3 ml-4"
-          alt="contact"
-        />
+        <div className="py-3 ml-4">
+          <Image
+            src={
+              platform === "Email"
+                ? "/assets/Email.svg"
+                : platform === "Discord"
+                ? "/assets/Discord.svg"
+                : ""
+            }
+            width={70}
+            height={70}
+            alt="contact"
+          />
+        </div>
         <div className="ml-5">
           <h1 className="font-bold text-white text-lg">{platform}</h1>
           <h2 className="text-gray-300">{adress}</h2>

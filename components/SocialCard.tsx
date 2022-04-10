@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface Social {
   platform: string;
   name: string;
@@ -11,19 +13,20 @@ const SocialCard = ({ platform, name, href }: Social) => {
       onClick={() => (window.location.href = href)}
     >
       <div className="flex flex-row items-center">
-        <img
-          src={
-            platform === "Github"
-              ? "/assets/Github.svg"
-              : platform === "Youtube"
-              ? "/assets/Youtube.svg"
-              : ""
-          }
-          width={70}
-          height={70}
-          className="py-3 ml-4"
-          alt="social"
-        />
+        <div className="py-3 ml-4">
+          <Image
+            src={
+              platform === "Github"
+                ? "/assets/Github.svg"
+                : platform === "Youtube"
+                ? "/assets/Youtube.svg"
+                : ""
+            }
+            width={70}
+            height={70}
+            alt="social"
+          />
+        </div>
         <div className="ml-5">
           <h1 className="font-bold text-white text-lg">{name}</h1>
           <h2 className="text-gray-300">{platform}</h2>

@@ -1,4 +1,5 @@
 import { ProjectInterface } from "../lib/types";
+import Image from "next/image";
 
 const ProjectCard = ({
   name,
@@ -13,13 +14,15 @@ const ProjectCard = ({
       onClick={() => (window.location.href = href)}
     >
       <div className="flex flex-row items-center">
-        <img
-          src={image}
-          width={70}
-          height={70}
-          className="py-3 ml-4 rounded-md"
-          alt="project"
-        />
+        <div className="py-4 ml-4">
+          <Image
+            src={image}
+            width={70}
+            height={70}
+            className="rounded-md"
+            alt="project"
+          />
+        </div>
         <div className="ml-5">
           <h1 className="font-bold text-white text-lg">{name}</h1>
           <h2 className="text-gray-300">{description}</h2>
