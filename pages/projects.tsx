@@ -1,0 +1,56 @@
+import type { NextPage } from "next";
+import Layout from "../components/Layout";
+import ProjectCard from "../components/ProjectCard";
+import { ProjectInterface } from "../lib/types";
+
+interface PageOptions {
+  projects: ProjectInterface[];
+}
+
+const Projects: NextPage<PageOptions> = ({ projects }) => {
+  return (
+    <Layout
+      active="projects"
+      title="Projects"
+      description="Checkout my projects!"
+      href="/projects"
+    >
+      <div className="container">
+        <h1 className="font-bold text-5xl">
+          My <span className="h-text"> Projects</span>
+        </h1>
+        {projects.map((project, i) => {
+          return (
+            <ProjectCard
+              key={i}
+              name={project.name}
+              description={project.description}
+              image={project.image}
+              href={project.href}
+              status={project.status}
+            />
+          );
+        })}
+      </div>
+    </Layout>
+  );
+};
+
+export const getStaticProps = async () => {
+  const res = await fetch(`${process.env.URL}/api/projects`, {
+    headers: {
+      Accept: "application/json, text/plain, */*",
+      "User-Agent": "*",
+    },
+  });
+
+  const data = await res.json();
+
+  return {
+    props: {
+      projects: data.data,
+    },
+  };
+};
+
+export default Projects;
