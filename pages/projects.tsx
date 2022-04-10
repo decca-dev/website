@@ -41,7 +41,7 @@ export const getStaticProps = async (context: NextPageContext) => {
   const baseUrl = context.req
     ? `${protocol}://${context.req.headers.host}`
     : "";
-  const res = await fetch(`${baseUrl}/api/projects`, {
+  const res = await fetch(`http://localhost:3000/api/projects`, {
     headers: {
       Accept: "application/json, text/plain, */*",
       "User-Agent": "*",
