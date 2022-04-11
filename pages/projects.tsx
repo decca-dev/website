@@ -12,7 +12,7 @@ const Projects: NextPage = () => {
       const data = await res.json();
       setTimeout(() => {
         setProjects(data.data);
-      }, 2500);
+      }, 1500);
     });
   }, []);
 
