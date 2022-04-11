@@ -65,25 +65,4 @@ const Projects: NextPage = () => {
   );
 };
 
-// export const getStaticProps = async (context: NextPageContext) => {
-//   const protocol = context.req?.headers["x-forwarded-proto"] || "http";
-//   const baseUrl = context.req
-//     ? `${protocol}://${context.req.headers.host}`
-//     : "";
-//   const res = await fetch(`http://localhost:3000/api/projects`, {
-//     headers: {
-//       Accept: "application/json, text/plain, */*",
-//       "User-Agent": "*",
-//     },
-//   });
-
-//   const data = await res.json();
-
-//   return {
-//     props: {
-//       projects: data.data,
-//     },
-//   };
-// };
-
 export default Projects;
