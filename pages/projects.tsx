@@ -1,13 +1,19 @@
-import type { NextPage, NextPageContext } from "next";
+import type { NextPage } from "next";
 import Layout from "../components/Layout";
 import ProjectCard from "../components/ProjectCard";
 import { ProjectInterface } from "../lib/types";
+import { useState, useEffect } from "react";
 
-interface PageOptions {
-  projects: ProjectInterface[];
-}
+const Projects: NextPage = () => {
+  const [projects, setProjects] = useState<ProjectInterface[]>([]);
 
-const Projects: NextPage<PageOptions> = ({ projects }) => {
+  useEffect(() => {
+    fetch('/api/projects').then(async (res) => {
+      const data = await res.json();
+      setProjects(data.data)
+    })
+  }, [])
+
   return (
     <Layout
       active="projects"
@@ -36,25 +42,25 @@ const Projects: NextPage<PageOptions> = ({ projects }) => {
   );
 };
 
-export const getStaticProps = async (context: NextPageContext) => {
-  const protocol = context.req?.headers["x-forwarded-proto"] || "http";
-  const baseUrl = context.req
-    ? `${protocol}://${context.req.headers.host}`
-    : "";
-  const res = await fetch(`http://localhost:3000/api/projects`, {
-    headers: {
-      Accept: "application/json, text/plain, */*",
-      "User-Agent": "*",
-    },
-  });
+// export const getStaticProps = async (context: NextPageContext) => {
+//   const protocol = context.req?.headers["x-forwarded-proto"] || "http";
+//   const baseUrl = context.req
+//     ? `${protocol}://${context.req.headers.host}`
+//     : "";
+//   const res = await fetch(`http://localhost:3000/api/projects`, {
+//     headers: {
+//       Accept: "application/json, text/plain, */*",
+//       "User-Agent": "*",
+//     },
+//   });
 
-  const data = await res.json();
+//   const data = await res.json();
 
-  return {
-    props: {
-      projects: data.data,
-    },
-  };
-};
+//   return {
+//     props: {
+//       projects: data.data,
+//     },
+//   };
+// };
 
 export default Projects;
