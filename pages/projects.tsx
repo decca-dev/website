@@ -61,7 +61,6 @@ export const getServerSideProps = async ({ res }: NextPageContext) => {
 		'Cache-Control',
 		'public, s-maxage=10, stale-while-revalidate=59',
 	);
-
 	const request = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/projects`, {
 		method: 'GET',
 		headers: { 'Content-Type': 'application/json' },
