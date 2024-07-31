@@ -3,74 +3,62 @@
 @tailwind utilities;
 
 * {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 html,
 body {
-	height: 100%;
-	overflow-x: hidden;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 body {
-	background: linear-gradient(to left, #3a0d25, #72244e);
-	color: #ffffff;
-}
-
-.navbar {
-	background: #3a0d25;
-	height: 70px;
-	padding: 10px;
+  background: linear-gradient(to right, #5a0f37, #7a184c);
+  color: #ffffff;
 }
 
 .container {
-	padding-top: 30px;
-	padding-right: 30px;
-	padding-left: 30px;
-	padding-bottom: 30px;
-	margin-right: auto;
-	margin-left: auto;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-bottom: 30px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .h-text {
-	background: linear-gradient(#a12c6b, #f390c5);
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
-}
-
-.morocco {
-	background: linear-gradient(to right, #e50d0d, #18f413);
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
+  background: linear-gradient(#a12c6b, #f390c5);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 ::-webkit-scrollbar {
-	width: 7px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-	background: linear-gradient(#3a0d25, #72244e);
+  background: linear-gradient(#3a0d25, #72244e);
 }
 
 ::-webkit-scrollbar-thumb {
-	background: linear-gradient(#a12c6b, #f390c5);
-	border-radius: 20px;
+  background: linear-gradient(#a12c6b, #f390c5);
+  border-radius: 20px;
 }
 
 @media (min-width: 768px) {
-	.container {
-		width: 750px;
-	}
+  .container {
+    width: 750px;
+  }
 }
 @media (min-width: 992px) {
-	.container {
-		width: 970px;
-	}
+  .container {
+    width: 970px;
+  }
 }
 @media (min-width: 1200px) {
-	.container {
-		width: 1170px;
-	}
+  .container {
+    width: 1170px;
+  }
 }

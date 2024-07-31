@@ -1,31 +1,42 @@
-import Image from "next/image";
-import { FC } from "react";
-import Link from "next/link";
-
-interface NavbarOptions {
-  active: NavLinks;
-}
+import Image from 'next/image';
+import { FC } from 'react';
+import Link from 'next/link';
 
 interface NavLinkOptions {
   title: string;
   href: string;
-  active: NavLinks;
+  active?: string;
 }
 
-type NavLinks = "home" | "about" | "projects" | "contact" | "social";
+interface Props {
+  active?: string;
+}
 
-const Navbar: FC<NavbarOptions> = ({ active }: NavbarOptions) => {
+const Navbar: FC<Props> = ({ active }) => {
   return (
-    <nav className="navbar">
-      <div className="flex flex-row items-center justify-between font-semibold sm:justify-around">
-        <Image src={"/assets/logo.png"} width={50} height={50} />
-        <div className="mr-7 flex space-x-4 sm:mr-16 sm:space-x-6">
-          <NavLink title="Home" href="/" active={active} />
-          <NavLink title="About" href="/about" active={active} />
-          <NavLink title="Projects" href="/projects" active={active} />
-          <NavLink title="Contact" href="/contact" active={active} />
-          <NavLink title="Social" href="/social" active={active} />
-        </div>
+    <nav className='p-3 flex flex-row items-center justify-around'>
+      <Image
+        src={'/assets/logo.png'}
+        width={50}
+        height={58}
+        alt='logo'
+      />
+      <div className='mr-7 flex flex-row items-center space-x-3 sm:space-x-6'>
+        <NavLink
+          title='Home'
+          href='/'
+          active={active}
+        />
+        <NavLink
+          title='Projects'
+          href='/projects'
+          active={active}
+        />
+        <NavLink
+          title='Contact'
+          href='/contact'
+          active={active}
+        />
       </div>
     </nav>
   );
@@ -34,11 +45,9 @@ const Navbar: FC<NavbarOptions> = ({ active }: NavbarOptions) => {
 const NavLink = ({ title, href, active }: NavLinkOptions) => {
   return (
     <h1
-      className={
-        active === title.toLowerCase()
-          ? "text-white underline"
-          : "text-gray-400"
-      }
+      className={`text-xl font-semibold
+				${active === title.toLowerCase() ? 'text-white' : 'text-gray-400'}
+			`}
     >
       <Link href={href}>{title}</Link>
     </h1>

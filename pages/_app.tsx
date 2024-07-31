@@ -1,8 +1,11 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import '../styles/globals.css';
+import type { AppProps } from 'next/app';
+import PageWithTransition from '../components/Transition';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+export default function App(props: AppProps) {
+	return (
+		<>
+			<PageWithTransition {...props} />
+		</>
+	);
 }
-
-export default MyApp
